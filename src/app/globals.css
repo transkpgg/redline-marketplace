@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --bg-color: #ffffff;
-  --text-primary: #0a0a0a;
-  --text-secondary: #666666;
-  --accent-red: #e60000;
-  --grid-color: rgba(0, 0, 0, 0.05);
+  --bg-color: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --accent-red: #ff003c;
+  --grid-color: rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -19,6 +19,17 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite;
 }
 
 /* Background Grid */

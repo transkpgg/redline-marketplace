@@ -52,8 +52,8 @@ export default function ProductGrid() {
       <div className="flex flex-col md:flex-row gap-4 mb-12">
         <input 
           type="text" 
-          placeholder="Cari produk..." 
-          className="bg-transparent border border-black/20 p-3 text-black focus:border-[var(--accent-red)] outline-none flex-grow font-sans"
+          placeholder="CARI PRODUK //" 
+          className="bg-black/50 border-2 border-white/20 p-4 text-white focus:border-[var(--accent-red)] outline-none flex-grow font-[var(--font-orbitron)] uppercase tracking-widest text-xs md:text-sm transition-colors"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -72,12 +72,12 @@ export default function ProductGrid() {
                   BARU
                 </div>
               </div>
-              <div className="flex justify-between items-center pb-4 border-b border-black/10 mb-4">
-                <h3 className="font-[var(--font-orbitron)] tracking-wider text-sm">{product.name}</h3>
-                <p className="text-[var(--text-secondary)] font-sans">${product.price.toFixed(2)}</p>
+              <div className="flex justify-between items-center pb-4 border-b border-white/10 mb-4">
+                <h3 className="font-[var(--font-orbitron)] font-bold tracking-widest text-base group-hover:text-[var(--accent-red)] transition-colors">{product.name}</h3>
+                <p className="text-[var(--text-secondary)] font-[var(--font-orbitron)]">${product.price.toFixed(2)}</p>
               </div>
-              <button className="w-full py-3 bg-black/5 border border-black/10 text-black font-bold font-sans text-xs tracking-[0.2em] uppercase group-hover:bg-[var(--accent-red)] group-hover:text-white group-hover:border-[var(--accent-red)] group-hover:shadow-[0_0_20px_rgba(255,0,60,0.3)] transition-all duration-300 flex items-center justify-center gap-2">
-                BELI SEKARANG <span className="text-[10px] opacity-50 group-hover:opacity-100 transition-opacity">→</span>
+              <button className="w-full py-4 bg-transparent border-2 border-white/20 text-white font-black font-[var(--font-orbitron)] text-xs tracking-[0.2em] uppercase group-hover:bg-[var(--accent-red)] group-hover:text-white group-hover:border-[var(--accent-red)] group-hover:shadow-[0_0_30px_rgba(255,0,60,0.4)] transition-all duration-300 flex items-center justify-center gap-2">
+                BELI SEKARANG <span className="text-[10px] opacity-50 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-2">→</span>
               </button>
             </div>
           ))}

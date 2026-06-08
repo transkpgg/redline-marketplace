@@ -32,6 +32,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Marquee Ticker */}
+      <div className="bg-[var(--accent-red)] py-3 overflow-hidden border-y border-black text-black font-[var(--font-orbitron)] font-black text-2xl md:text-4xl tracking-widest uppercase flex items-center">
+        <div className="animate-marquee inline-flex whitespace-nowrap opacity-90">
+          <span className="mx-6">PERFORMANCE GEAR</span><span className="mx-6">///</span>
+          <span className="mx-6">STAY LOADED</span><span className="mx-6">///</span>
+          <span className="mx-6">NO LIMITS</span><span className="mx-6">///</span>
+          <span className="mx-6">PERFORMANCE GEAR</span><span className="mx-6">///</span>
+          <span className="mx-6">STAY LOADED</span><span className="mx-6">///</span>
+          <span className="mx-6">NO LIMITS</span><span className="mx-6">///</span>
+        </div>
+      </div>
+
       {/* Catalog Section */}
       <section id="shop" className="py-24 px-8 md:px-16 bg-[var(--bg-color)]">
         <div className="flex items-center gap-8 mb-16">
