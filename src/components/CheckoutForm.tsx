@@ -82,14 +82,14 @@ export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
         
         <h2 className="font-[var(--font-orbitron)] text-2xl tracking-widest mb-6 border-b border-white/10 pb-4">CHECKOUT <span className="text-[var(--accent-red)]">AMAN</span></h2>
         
-        <div className="flex gap-6 mb-8 bg-white/5 p-4 rounded-sm border border-white/5">
+        <div className="flex gap-6 mb-8 bg-white/5 p-4 rounded-none border border-white/10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={product.image_url} alt={product.name} className="w-24 h-28 object-cover border border-white/10" />
+          <img src={product.image_url} alt={product.name} className="w-24 h-28 object-cover border border-white/10 grayscale-[20%]" />
           <div className="flex flex-col justify-center">
             <h3 className="font-[var(--font-orbitron)] tracking-wide mb-1 text-lg">{product.name}</h3>
             <p className="text-[var(--text-secondary)] font-sans mb-3">${product.price.toFixed(2)}</p>
             {product.stock !== undefined && (
-              <span className={`text-xs px-2 py-1 border rounded-sm w-max ${product.stock > 0 ? 'border-green-500/50 text-green-400' : 'border-red-500/50 text-red-400'}`}>
+              <span className={`text-xs px-2 py-1 border rounded-none w-max ${product.stock > 0 ? 'border-green-500/50 text-green-400' : 'border-red-500/50 text-red-400'}`}>
                 {product.stock > 0 ? `${product.stock} STOK` : 'HABIS'}
               </span>
             )}

@@ -44,8 +44,26 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Editorial Section */}
+      <section className="border-b border-white/10 flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
+          <h2 className="font-[var(--font-orbitron)] font-black text-3xl md:text-5xl uppercase tracking-widest mb-6">
+            ENGINEERED FOR THE <br/><span className="text-[var(--accent-red)]">UNDERGROUND.</span>
+          </h2>
+          <p className="text-[var(--text-secondary)] leading-relaxed mb-8 max-w-md">
+            Mendobrak batasan desain dengan material presisi tinggi. Koleksi ini bukan sekadar pakaian, melainkan perlengkapan tempur di era modern. Tahan banting, fungsional, dan estetis tanpa kompromi.
+          </p>
+          <Link href="#shop" className="w-max py-4 px-10 bg-transparent border-2 border-white text-white font-black font-[var(--font-orbitron)] text-xs tracking-[0.2em] uppercase hover:bg-[var(--accent-red)] hover:border-[var(--accent-red)] hover:shadow-[0_0_30px_rgba(255,0,60,0.5)] transition-all duration-300">
+            LIHAT ARSIP LENGKAP
+          </Link>
+        </div>
+        <div className="w-full md:w-1/2 relative min-h-[500px]">
+          <Image src="/editorial.png" alt="Editorial Streetwear" fill className="object-cover filter grayscale-[50%] contrast-[110%]" />
+        </div>
+      </section>
+
       {/* Catalog Section */}
-      <section id="shop" className="py-24 px-8 md:px-16 bg-[var(--bg-color)]">
+      <section id="shop" className="py-24 px-8 md:px-16 bg-[var(--bg-color)] border-b border-white/10">
         <div className="flex items-center gap-8 mb-16">
           <h2 className="font-[var(--font-orbitron)] text-4xl tracking-widest uppercase">RILISAN <span className="text-[var(--accent-red)]">TERBARU</span></h2>
           <div className="h-[1px] flex-grow bg-gradient-to-r from-[var(--text-secondary)] to-transparent" />

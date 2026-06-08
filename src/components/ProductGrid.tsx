@@ -61,13 +61,13 @@ export default function ProductGrid() {
 
       {/* Grid */}
       {loading ? (
-        <div className="text-center text-[var(--text-secondary)]">Menyinkronkan dengan server...</div>
+        <div className="text-center text-[var(--text-secondary)] py-20 border-t border-white/10">Menyinkronkan dengan server...</div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-white/10">
           {filteredProducts.map(product => (
-            <div key={product.id} className="group cursor-pointer" onClick={() => setSelectedProduct(product)}>
-              <div className="product-image-wrapper aspect-[4/5] relative mb-6">
-                <Image src={product.image_url} alt={product.name} fill className="object-cover" />
+            <div key={product.id} className="group cursor-pointer border-r border-b border-white/10 p-6 hover:bg-white/5 transition-colors" onClick={() => setSelectedProduct(product)}>
+              <div className="product-image-wrapper aspect-[4/5] relative mb-6 overflow-hidden border border-white/10 bg-black">
+                <Image src={product.image_url} alt={product.name} fill className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0" />
                 <div className="absolute top-4 right-4 bg-[var(--accent-red)] text-white text-xs font-bold px-3 py-1 tracking-wider font-[var(--font-orbitron)] z-10">
                   BARU
                 </div>
