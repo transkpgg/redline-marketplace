@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Orbitron } from "next/font/google";
+import { Inter, Anton } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import BackgroundGrid from "@/components/BackgroundGrid";
@@ -10,10 +10,10 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${orbitron.variable} scroll-smooth`}
+      className={`${inter.variable} ${anton.variable} scroll-smooth`}
     >
       <body className="min-h-screen flex flex-col font-sans bg-[#050505] text-white" style={{ fontFamily: 'var(--font-inter)' }}>
         {children}

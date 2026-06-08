@@ -21,19 +21,19 @@ export default function Home() {
 
         {/* Hero Content */}
         <div className="relative z-20 px-6 md:px-8 flex flex-col items-center justify-center pt-20 w-full">
-          <h1 className="glitch font-[var(--font-orbitron)] text-white text-4xl md:text-6xl lg:text-8xl" data-text="KEMUDIKAN">KEMUDIKAN</h1>
-          <h1 className="glitch text-[var(--accent-red)] font-[var(--font-orbitron)] text-4xl md:text-6xl lg:text-8xl mt-2" data-text="MASA DEPAN.">MASA DEPAN.</h1>
-          <p className="mt-6 md:mt-8 text-sm md:text-lg text-white/80 max-w-[600px] leading-relaxed">
+          <h1 className="font-[var(--font-anton)] text-white text-5xl md:text-7xl lg:text-9xl uppercase tracking-wider leading-[0.9] text-center">KEMUDIKAN</h1>
+          <h1 className="text-[var(--accent-red)] font-[var(--font-anton)] text-5xl md:text-7xl lg:text-9xl uppercase tracking-wider leading-[0.9] text-center mt-2">MASA DEPAN.</h1>
+          <p className="mt-6 md:mt-8 text-sm md:text-lg text-white/80 max-w-[600px] leading-relaxed font-sans uppercase tracking-widest text-center">
             Streetwear presisi tinggi. Tanpa batas kecepatan.
           </p>
-          <Link href="#shop" className="mt-10 md:mt-12 py-4 px-10 font-[var(--font-orbitron)] font-bold bg-transparent text-white border-2 border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:shadow-[0_0_30px_rgba(255,0,60,0.4)] transition-all duration-300 uppercase tracking-[0.2em] text-xs md:text-sm">
-            Jelajahi Koleksi
+          <Link href="#shop" className="mt-12 py-5 px-12 bg-white text-black font-[var(--font-anton)] text-xl uppercase tracking-widest hover:bg-[var(--accent-red)] hover:text-white transition-colors duration-300">
+            JELAJAHI KOLEKSI
           </Link>
         </div>
       </section>
 
       {/* Marquee Ticker */}
-      <div className="bg-[var(--accent-red)] py-3 overflow-hidden border-y border-black text-black font-[var(--font-orbitron)] font-black text-2xl md:text-4xl tracking-widest uppercase flex items-center">
+      <div className="bg-[var(--accent-red)] py-3 overflow-hidden border-y border-black text-black font-[var(--font-anton)] text-2xl md:text-4xl tracking-widest uppercase flex items-center">
         <div className="animate-marquee inline-flex whitespace-nowrap opacity-90">
           <span className="mx-6">PERFORMANCE GEAR</span><span className="mx-6">///</span>
           <span className="mx-6">STAY LOADED</span><span className="mx-6">///</span>
@@ -46,8 +46,8 @@ export default function Home() {
 
       {/* Editorial Section */}
       <section className="border-b border-white/10 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
-          <h2 className="font-[var(--font-orbitron)] font-black text-3xl md:text-5xl uppercase tracking-widest mb-6">
+        <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 bg-[#050505]">
+          <h2 className="font-[var(--font-anton)] text-3xl md:text-5xl uppercase tracking-widest mb-6 leading-tight">
             ENGINEERED FOR THE <br/><span className="text-[var(--accent-red)]">UNDERGROUND.</span>
           </h2>
           <p className="text-[var(--text-secondary)] leading-relaxed mb-8 max-w-md">
@@ -65,7 +65,7 @@ export default function Home() {
       {/* Catalog Section */}
       <section id="shop" className="py-24 px-8 md:px-16 bg-[var(--bg-color)] border-b border-white/10">
         <div className="flex items-center gap-8 mb-16">
-          <h2 className="font-[var(--font-orbitron)] text-4xl tracking-widest uppercase">RILISAN <span className="text-[var(--accent-red)]">TERBARU</span></h2>
+          <h2 className="font-[var(--font-anton)] text-4xl tracking-widest uppercase">RILISAN <span className="text-[var(--accent-red)]">TERBARU</span></h2>
           <div className="h-[1px] flex-grow bg-gradient-to-r from-[var(--text-secondary)] to-transparent" />
         </div>
         

@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <header className="fixed w-full top-0 z-[100]">
       {/* Announcement Bar / Marquee */}
-      <div className="bg-[var(--accent-red)] text-white py-1.5 overflow-hidden font-[var(--font-orbitron)] font-bold text-[10px] md:text-xs tracking-[0.3em] uppercase w-full">
+      <div className="bg-[var(--accent-red)] text-white py-1.5 overflow-hidden font-[var(--font-anton)] font-bold text-[10px] md:text-xs tracking-[0.3em] uppercase w-full">
         <div className="animate-marquee inline-flex whitespace-nowrap">
           <span className="mx-4">STAY LOADED // HIGH PRECISION STREETWEAR // LIMITED EDITION DROPS</span>
           <span className="mx-4">STAY LOADED // HIGH PRECISION STREETWEAR // LIMITED EDITION DROPS</span>
@@ -19,7 +19,7 @@ export default function Navbar() {
       </div>
 
       <nav className="flex justify-between items-center px-6 md:px-16 py-4 backdrop-blur-xl border-b border-white/10 bg-black/80">
-        <Link href="/" className="font-[var(--font-orbitron)] font-black text-2xl md:text-3xl tracking-widest text-white flex items-center gap-2 z-50">
+        <Link href="/" className="font-[var(--font-anton)] font-black text-2xl md:text-3xl tracking-widest text-white flex items-center gap-2 z-50">
           <Activity className="w-6 h-6 md:w-8 md:h-8 text-[var(--accent-red)]" />
           RDLN<span className="text-[var(--accent-red)]">.</span>
         </Link>
@@ -65,17 +65,17 @@ export default function Navbar() {
           </button>
 
           <div className="flex flex-col gap-8 w-full pr-8">
-            <Link href="#shop" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-2xl transition-all duration-500 delay-100 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+            <Link href="#shop" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-anton)] font-black uppercase tracking-[0.2em] text-2xl transition-all duration-500 delay-100 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
               BELANJA
               <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full"></span>
             </Link>
             
-            <Link href="#collections" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-2xl transition-all duration-500 delay-200 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+            <Link href="#collections" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-anton)] font-black uppercase tracking-[0.2em] text-2xl transition-all duration-500 delay-200 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
               KOLEKSI
               <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
-            <Link href="#about" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-2xl transition-all duration-500 delay-300 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+            <Link href="#about" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-anton)] font-black uppercase tracking-[0.2em] text-2xl transition-all duration-500 delay-300 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
               TENTANG
               <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full"></span>
             </Link>
