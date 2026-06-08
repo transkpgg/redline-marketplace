@@ -11,22 +11,22 @@ export default function Home() {
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <iframe 
-            src="https://www.youtube.com/embed/4fSYLOG2XJk?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=4fSYLOG2XJk" 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] md:w-[150%] md:h-[150%] object-cover pointer-events-none filter grayscale-[80%] contrast-[120%]"
+            src="https://www.youtube.com/embed/4fSYLOG2XJk?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=4fSYLOG2XJk&playsinline=1&rel=0&modestbranding=1" 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] md:w-[150%] md:h-[150%] object-cover pointer-events-none filter grayscale-[80%] contrast-[120%]"
             allow="autoplay; encrypted-media"
             frameBorder="0"
           />
-          <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/70 md:bg-black/60 z-10 pointer-events-none" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-20 px-8 flex flex-col items-center mt-20">
-          <h1 className="glitch font-[var(--font-orbitron)] text-white" data-text="KEMUDIKAN">KEMUDIKAN</h1>
-          <h1 className="glitch text-[var(--accent-red)] font-[var(--font-orbitron)]" data-text="MASA DEPAN.">MASA DEPAN.</h1>
-          <p className="mt-6 text-lg text-white/80 max-w-[600px]">
+        <div className="relative z-20 px-6 md:px-8 flex flex-col items-center justify-center pt-20 w-full">
+          <h1 className="glitch font-[var(--font-orbitron)] text-white text-4xl md:text-6xl lg:text-8xl" data-text="KEMUDIKAN">KEMUDIKAN</h1>
+          <h1 className="glitch text-[var(--accent-red)] font-[var(--font-orbitron)] text-4xl md:text-6xl lg:text-8xl mt-2" data-text="MASA DEPAN.">MASA DEPAN.</h1>
+          <p className="mt-6 md:mt-8 text-sm md:text-lg text-white/80 max-w-[600px] leading-relaxed">
             Streetwear presisi tinggi. Tanpa batas kecepatan.
           </p>
-          <Link href="#shop" className="mt-12 py-4 px-8 font-[var(--font-orbitron)] font-bold bg-white text-black hover:bg-[var(--accent-red)] hover:text-white transition-colors uppercase tracking-widest text-sm rounded-none border border-transparent hover:border-[var(--accent-red)]">
+          <Link href="#shop" className="mt-10 md:mt-12 py-4 px-10 font-[var(--font-orbitron)] font-bold bg-transparent text-white border-2 border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:shadow-[0_0_30px_rgba(255,0,60,0.4)] transition-all duration-300 uppercase tracking-[0.2em] text-xs md:text-sm">
             Jelajahi Koleksi
           </Link>
         </div>
