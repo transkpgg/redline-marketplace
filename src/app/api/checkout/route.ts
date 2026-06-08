@@ -4,7 +4,7 @@ import { readDB, writeDB, LocalOrder } from '@/lib/db';
 import { v4 as uuidv4 } from 'uuid';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
 const isValidUrl = (url: string) => {
   try {
@@ -15,9 +15,8 @@ const isValidUrl = (url: string) => {
   }
 };
 
-// Mock Supabase client if keys are not present or URL is invalid
-const supabase = (isValidUrl(supabaseUrl) && supabaseServiceKey) 
-  ? createClient(supabaseUrl, supabaseServiceKey) 
+const supabase = (isValidUrl(supabaseUrl) && supabaseAnonKey) 
+  ? createClient(supabaseUrl, supabaseAnonKey) 
   : null;
 
 export async function POST(req: Request) {
