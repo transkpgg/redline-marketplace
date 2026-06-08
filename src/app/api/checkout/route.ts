@@ -50,7 +50,7 @@ export async function POST(req: Request) {
       
       // Attempt to decrement stock
       if (body.product_id) {
-        const { data: prodData } = await supabase.from('products').select('stock').eq('id', body.product_id).single();
+        const { data: prodData } = await supabase.from('products').select('stock').eq('id', body.product_id).maybeSingle();
         if (prodData && prodData.stock > 0) {
           await supabase.from('products').update({ stock: prodData.stock - 1 }).eq('id', body.product_id);
         }
