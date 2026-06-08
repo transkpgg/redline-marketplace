@@ -45,15 +45,17 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-[#050505]/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 text-xl border-b border-white/10">
-          <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white hover:text-[var(--accent-red)] font-black uppercase tracking-widest transition-colors text-3xl">Belanja Semua</Link>
-          <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/70 hover:text-[var(--accent-red)] uppercase tracking-widest transition-colors">Pakaian</Link>
-          <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/70 hover:text-[var(--accent-red)] uppercase tracking-widest transition-colors">Aksesoris</Link>
-          <Link href="#collections" onClick={() => setIsOpen(false)} className="text-white/70 hover:text-[var(--accent-red)] uppercase tracking-widest transition-colors mt-8">Koleksi</Link>
-          <Link href="#about" onClick={() => setIsOpen(false)} className="text-white/70 hover:text-[var(--accent-red)] uppercase tracking-widest transition-colors">Tentang</Link>
+      <div className={`md:hidden fixed inset-0 bg-[#050505]/98 backdrop-blur-2xl z-40 flex flex-col pt-32 px-8 transition-all duration-300 ease-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+        <div className={`flex flex-col gap-6 w-full max-w-sm mx-auto transition-transform duration-500 delay-100 ${isOpen ? 'translate-y-0' : '-translate-y-10'}`}>
+          <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white hover:text-[var(--accent-red)] font-[var(--font-orbitron)] font-black uppercase tracking-widest transition-colors text-2xl border-b border-white/10 pb-6">BELANJA SEMUA</Link>
+          <div className="flex flex-col gap-5 pl-4 border-b border-white/10 pb-6">
+            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white uppercase tracking-[0.2em] transition-colors text-sm">Pakaian</Link>
+            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white uppercase tracking-[0.2em] transition-colors text-sm">Aksesoris</Link>
+          </div>
+          <Link href="#collections" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[var(--accent-red)] font-[var(--font-orbitron)] font-bold uppercase tracking-widest transition-colors text-lg pt-2">KOLEKSI TERBATAS</Link>
+          <Link href="#about" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[var(--accent-red)] font-[var(--font-orbitron)] font-bold uppercase tracking-widest transition-colors text-lg">TENTANG RDLN</Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
