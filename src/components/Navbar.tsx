@@ -44,28 +44,34 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`md:hidden fixed inset-0 bg-white/98 backdrop-blur-3xl z-40 flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-        <div className="flex flex-col items-center gap-10 text-center w-full px-8">
-          <Link href="#shop" onClick={() => setIsOpen(false)} className={`group relative text-black font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-100 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+      {/* Mobile Menu Backdrop */}
+      <div className={`md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`} onClick={() => setIsOpen(false)}></div>
+
+      {/* Mobile Menu Sidebar (Menyamping) */}
+      <div className={`md:hidden fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-50 flex flex-col justify-center pl-10 shadow-2xl transition-transform duration-500 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <button className="absolute top-6 right-6 text-black/50 hover:text-[var(--accent-red)] transition-colors" onClick={() => setIsOpen(false)}>
+          <X size={32} />
+        </button>
+
+        <div className="flex flex-col gap-8 w-full pr-8">
+          <Link href="#shop" onClick={() => setIsOpen(false)} className={`group relative text-black font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-100 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
             BELANJA
-            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(255,0,60,0.5)]"></span>
+            <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full"></span>
           </Link>
           
-          <Link href="#collections" onClick={() => setIsOpen(false)} className={`group relative text-black font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-200 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <Link href="#collections" onClick={() => setIsOpen(false)} className={`group relative text-black font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-200 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
             KOLEKSI
-            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(255,0,60,0.5)]"></span>
+            <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
-          <Link href="#about" onClick={() => setIsOpen(false)} className={`group relative text-black font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <Link href="#about" onClick={() => setIsOpen(false)} className={`group relative text-black font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-300 w-max ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
             TENTANG
-            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(255,0,60,0.5)]"></span>
+            <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
-          <div className={`mt-10 flex items-center gap-6 transition-all duration-500 delay-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-black/40 hover:text-[var(--accent-red)] uppercase tracking-[0.3em] text-[10px] font-bold transition-colors">PAKAIAN</Link>
-            <span className="w-1 h-1 rounded-full bg-black/10"></span>
-            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-black/40 hover:text-[var(--accent-red)] uppercase tracking-[0.3em] text-[10px] font-bold transition-colors">AKSESORIS</Link>
+          <div className={`mt-8 flex flex-col gap-4 transition-all duration-500 delay-400 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-black/50 hover:text-[var(--accent-red)] uppercase tracking-[0.3em] text-xs font-bold transition-colors w-max">PAKAIAN</Link>
+            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-black/50 hover:text-[var(--accent-red)] uppercase tracking-[0.3em] text-xs font-bold transition-colors w-max">AKSESORIS</Link>
           </div>
         </div>
       </div>
