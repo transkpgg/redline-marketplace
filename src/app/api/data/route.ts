@@ -9,8 +9,9 @@ export async function GET() {
         supabase.from('orders').select('*').order('created_at', { ascending: false }),
         supabase.from('products').select('*')
       ]);
+      const db = readDB();
       return NextResponse.json({
-        products: productsRes.data || [],
+        products: productsRes.data && productsRes.data.length > 0 ? productsRes.data : db.products,
         orders: ordersRes.data || []
       });
     }
