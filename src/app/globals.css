@@ -12,7 +12,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
 }
 
 body {
@@ -44,7 +43,7 @@ body {
 
 .glitch {
   font-weight: 900;
-  font-size: clamp(3rem, 8vw, 8rem);
+  font-size: clamp(2.5rem, 10vw, 8rem);
   line-height: 1;
   margin: 0;
   text-transform: uppercase;

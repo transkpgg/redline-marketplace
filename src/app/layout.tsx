@@ -31,15 +31,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${orbitron.variable} scroll-smooth`}
     >
-      <body className="min-h-screen flex flex-col font-sans" style={{ fontFamily: 'var(--font-inter)' }}>
-        <BackgroundGrid />
-        <CustomCursor />
-        <Navbar />
+      <body className="min-h-screen flex flex-col font-sans bg-[#050505] text-white" style={{ fontFamily: 'var(--font-inter)' }}>
         {children}
-        <footer className="mt-16 p-16 border-t border-white/10 flex justify-between items-center z-10">
-          <div className="font-[var(--font-orbitron)] font-black text-xl tracking-[4px] text-[var(--text-secondary)]">REDLINE</div>
-          <p className="text-[var(--text-secondary)] text-sm">&copy; 2026 Redline Apparel. All systems operational.</p>
-        </footer>
       </body>
     </html>
   );

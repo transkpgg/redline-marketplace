@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Product } from './ProductGrid';
 
 interface CheckoutFormProps {
@@ -11,6 +11,18 @@ interface CheckoutFormProps {
 export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [size, setSize] = useState('L'); // Default size
+  const [show, setShow] = useState(false);
+
+  // Trigger entrance animation
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
+  const handleClose = () => {
+    setShow(false);
+    setTimeout(onClose, 300); // Wait for exit animation
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,6 +33,7 @@ export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
       product_id: product.id,
       product_name: product.name,
       price: product.price,
+      size: size,
       customer_name: formData.get('name'),
       whatsapp: formData.get('whatsapp'),
       address: formData.get('address'),
@@ -46,60 +59,92 @@ export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
     }
   };
 
-  if (success) {
+    if (success) {
     return (
-      <div className="fixed inset-0 bg-black/90 z-[1000] flex items-center justify-center p-4 backdrop-blur-sm">
-        <div className="border border-[var(--accent-red)] p-8 max-w-md w-full bg-[#050505] text-center">
-          <h2 className="font-[var(--font-orbitron)] text-2xl text-[var(--accent-red)] mb-4">ORDER CONFIRMED</h2>
-          <p className="text-[var(--text-secondary)] mb-8">Your transaction has been secured. Our agents will contact you via WhatsApp shortly.</p>
+      <div className="fixed inset-0 bg-black/60 z-[1000] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300">
+        <div className="border border-[var(--accent-red)] p-10 max-w-md w-full bg-[#0a0a0a]/90 shadow-[0_0_50px_rgba(255,0,60,0.2)] text-center transform scale-100 transition-transform duration-300">
+          <h2 className="font-[var(--font-orbitron)] text-2xl text-[var(--accent-red)] mb-4 tracking-widest">PESANAN BERHASIL</h2>
+          <p className="text-[var(--text-secondary)] mb-8 font-sans leading-relaxed">Transaksi Anda telah diproses. Agen kami akan segera menghubungi Anda melalui WhatsApp untuk mengonfirmasi pengiriman.</p>
           <button onClick={onClose} className="cta-button py-3 px-6 w-full justify-center">
-            <span className="relative z-10">CLOSE TERMINAL</span>
+            <span className="relative z-10">TUTUP TERMINAL</span>
           </button>
         </div>
       </div>
     );
   }
 
+  const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+
   return (
-    <div className="fixed inset-0 bg-black/80 z-[1000] flex items-center justify-center p-4 backdrop-blur-sm overflow-y-auto">
-      <div className="border border-white/20 p-8 max-w-lg w-full bg-[#050505] relative mt-20 md:mt-0">
-        <button onClick={onClose} className="absolute top-4 right-4 text-white hover:text-[var(--accent-red)] text-xl font-bold">&times;</button>
+    <div className={`fixed inset-0 bg-black/60 z-[1000] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300 overflow-y-auto ${show ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`border border-white/10 p-8 max-w-lg w-full bg-[#0a0a0a]/95 shadow-2xl relative mt-20 md:mt-0 transition-transform duration-300 ${show ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'}`}>
+        <button onClick={handleClose} className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors text-2xl">&times;</button>
         
-        <h2 className="font-[var(--font-orbitron)] text-2xl tracking-widest mb-6">SECURE <span className="text-[var(--accent-red)]">CHECKOUT</span></h2>
+        <h2 className="font-[var(--font-orbitron)] text-2xl tracking-widest mb-6 border-b border-white/10 pb-4">CHECKOUT <span className="text-[var(--accent-red)]">AMAN</span></h2>
         
-        <div className="flex gap-4 mb-8 border-b border-white/10 pb-6">
+        <div className="flex gap-6 mb-8 bg-white/5 p-4 rounded-sm border border-white/5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={product.image_url} alt={product.name} className="w-20 h-24 object-cover border border-white/10" />
-          <div>
-            <h3 className="font-[var(--font-orbitron)] text-sm tracking-wide">{product.name}</h3>
-            <p className="text-[var(--text-secondary)] mt-1">${product.price.toFixed(2)}</p>
+          <img src={product.image_url} alt={product.name} className="w-24 h-28 object-cover border border-white/10" />
+          <div className="flex flex-col justify-center">
+            <h3 className="font-[var(--font-orbitron)] tracking-wide mb-1 text-lg">{product.name}</h3>
+            <p className="text-[var(--text-secondary)] font-sans mb-3">${product.price.toFixed(2)}</p>
+            {product.stock !== undefined && (
+              <span className={`text-xs px-2 py-1 border rounded-sm w-max ${product.stock > 0 ? 'border-green-500/50 text-green-400' : 'border-red-500/50 text-red-400'}`}>
+                {product.stock > 0 ? `${product.stock} STOK` : 'HABIS'}
+              </span>
+            )}
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 font-sans">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 font-sans">
+          
+          {/* Size Selector */}
           <div>
-            <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">Full Name</label>
-            <input required name="name" type="text" className="w-full bg-transparent border border-white/20 p-3 text-white focus:border-[var(--accent-red)] outline-none" />
+            <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-3">Pilih Ukuran</label>
+            <div className="flex gap-3">
+              {sizes.map(s => (
+                <button 
+                  key={s} 
+                  type="button"
+                  onClick={() => setSize(s)}
+                  className={`w-12 h-12 flex items-center justify-center border font-bold transition-all duration-200 ${size === s ? 'border-[var(--accent-red)] bg-[rgba(255,0,60,0.1)] text-white' : 'border-white/20 text-white/50 hover:border-white/50 hover:text-white'}`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
           </div>
-          <div>
-            <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">WhatsApp Number</label>
-            <input required name="whatsapp" type="tel" placeholder="+62..." className="w-full bg-transparent border border-white/20 p-3 text-white focus:border-[var(--accent-red)] outline-none" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
+            <div>
+              <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Nama Lengkap</label>
+              <input required name="name" type="text" className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none" />
+            </div>
+            <div>
+              <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Nomor WhatsApp</label>
+              <input required name="whatsapp" type="tel" placeholder="+62..." className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none" />
+            </div>
           </div>
+
           <div>
-            <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">Shipping Address</label>
-            <textarea required name="address" rows={3} className="w-full bg-transparent border border-white/20 p-3 text-white focus:border-[var(--accent-red)] outline-none resize-none"></textarea>
-          </div>
-          <div>
-            <label className="block text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">Payment Method</label>
-            <select name="payment" className="w-full bg-black border border-white/20 p-3 text-white focus:border-[var(--accent-red)] outline-none">
-              <option value="Bank Transfer">Bank Transfer</option>
-              <option value="E-Wallet">E-Wallet (OVO/GoPay/Dana)</option>
-              <option value="COD">Cash on Delivery (COD)</option>
-            </select>
+            <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Alamat Pengiriman</label>
+            <textarea required name="address" rows={2} className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none resize-none"></textarea>
           </div>
           
-          <button type="submit" disabled={loading} className="cta-button w-full justify-center py-4 mt-4 font-[var(--font-orbitron)] font-bold">
-            <span className="relative z-10">{loading ? 'PROCESSING...' : `PAY $${product.price.toFixed(2)}`}</span>
+          <div>
+            <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Metode Pembayaran</label>
+            <div className="relative">
+              <select name="payment" className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none appearance-none">
+                <option value="Bank Transfer">Transfer Bank</option>
+                <option value="E-Wallet">E-Wallet (OVO/GoPay/Dana)</option>
+                <option value="COD">Bayar di Tempat (COD)</option>
+              </select>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">▼</div>
+            </div>
+          </div>
+          
+          <button type="submit" disabled={loading || product.stock === 0} className="cta-button w-full justify-center py-4 mt-6 font-[var(--font-orbitron)] font-bold shadow-[0_0_20px_rgba(255,0,60,0.1)] hover:shadow-[0_0_30px_rgba(255,0,60,0.3)]">
+            <span className="relative z-10">{loading ? 'MEMPROSES...' : `BAYAR $${product.price.toFixed(2)}`}</span>
           </button>
         </form>
       </div>

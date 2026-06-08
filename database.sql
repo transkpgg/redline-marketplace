@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS public.products (
     name TEXT NOT NULL,
     category TEXT DEFAULT 'Uncategorized',
     price NUMERIC NOT NULL DEFAULT 0.00,
+    stock INTEGER DEFAULT 0,
     image_url TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
@@ -20,6 +21,7 @@ CREATE TABLE IF NOT EXISTS public.orders (
     address TEXT NOT NULL,
     product_id UUID,
     product_name TEXT NOT NULL,
+    size TEXT NOT NULL,
     total_price NUMERIC NOT NULL,
     payment_method TEXT NOT NULL,
     status TEXT DEFAULT 'Pending',

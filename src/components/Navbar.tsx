@@ -1,16 +1,28 @@
 import Link from 'next/link';
+import { Activity } from 'lucide-react';
 
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center px-8 md:px-16 py-6 fixed w-full top-0 z-[100] backdrop-blur-md border-b border-white/10">
-      <Link href="/" className="font-heading font-black text-2xl tracking-widest text-white">
-        REDLINE
+      <Link href="/" className="font-[var(--font-orbitron)] font-black text-3xl tracking-widest text-white flex items-center gap-2">
+        <Activity className="w-8 h-8 text-[var(--accent-red)]" />
+        RDLN<span className="text-[var(--accent-red)]">.</span>
       </Link>
       
-      <div className="hidden md:flex gap-12">
-        <Link href="#shop" className="text-[var(--text-secondary)] hover:text-white uppercase tracking-widest text-sm transition-colors">Shop</Link>
-        <Link href="#collections" className="text-[var(--text-secondary)] hover:text-white uppercase tracking-widest text-sm transition-colors">Collections</Link>
-        <Link href="#about" className="text-[var(--text-secondary)] hover:text-white uppercase tracking-widest text-sm transition-colors">About</Link>
+      <div className="hidden md:flex gap-12 items-center">
+        <div className="relative group py-4">
+          <Link href="#shop" className="text-white hover:text-[var(--accent-red)] font-bold uppercase tracking-widest text-sm transition-colors flex items-center gap-1">
+            Belanja <span className="text-[10px] opacity-50 group-hover:rotate-180 transition-transform">▼</span>
+          </Link>
+          <div className="absolute top-full left-0 mt-0 bg-[#050505]/95 backdrop-blur-xl border border-white/10 rounded-none p-4 flex flex-col min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 pointer-events-none group-hover:pointer-events-auto transform translate-y-2 group-hover:translate-y-0">
+            <Link href="#shop" className="text-white/60 hover:text-white hover:bg-white/5 px-4 py-3 transition-all text-sm tracking-widest uppercase w-full text-left">Semua Produk</Link>
+            <Link href="#shop" className="text-white/60 hover:text-white hover:bg-white/5 px-4 py-3 transition-all text-sm tracking-widest uppercase w-full text-left">Pakaian</Link>
+            <Link href="#shop" className="text-white/60 hover:text-white hover:bg-white/5 px-4 py-3 transition-all text-sm tracking-widest uppercase w-full text-left">Aksesoris</Link>
+            <Link href="#shop" className="text-white/60 hover:text-white hover:bg-white/5 px-4 py-3 transition-all text-sm tracking-widest uppercase w-full text-left">Koleksi Terbatas</Link>
+          </div>
+        </div>
+        <Link href="#collections" className="text-white/70 hover:text-[var(--accent-red)] uppercase tracking-widest text-sm transition-colors">Koleksi</Link>
+        <Link href="#about" className="text-white/70 hover:text-[var(--accent-red)] uppercase tracking-widest text-sm transition-colors">Tentang</Link>
       </div>
 
       <Link href="/cart" className="text-white hover:text-[var(--accent-red)] transition-colors">

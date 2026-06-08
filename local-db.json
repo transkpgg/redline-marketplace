@@ -1,0 +1,50 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "NEON DRIFT TEE",
+      "category": "T-Shirts",
+      "price": 45,
+      "stock": 11,
+      "image_url": "/shirt_car_graphic.png"
+    },
+    {
+      "id": "2",
+      "name": "GRIDLINE ESSENTIAL",
+      "category": "T-Shirts",
+      "price": 40,
+      "stock": 4,
+      "image_url": "/shirt_minimalist_grid.png"
+    }
+  ],
+  "orders": [
+    {
+      "id": "f54e35f8-e8e8-4946-ae2f-401e8837e884",
+      "order_id_string": "#ORD2026-8930",
+      "customer_name": "Bekonang",
+      "whatsapp": "123123",
+      "address": "Bunga Melati",
+      "product_name": "GRIDLINE ESSENTIAL",
+      "product_id": "2",
+      "size": "L",
+      "total_price": 40,
+      "payment_method": "COD",
+      "status": "Pending",
+      "created_at": "2026-06-08T17:18:13.339Z"
+    },
+    {
+      "id": "9a90a4eb-bb6f-4212-84cd-d5ce65f652f1",
+      "order_id_string": "#ORD2026-1521",
+      "customer_name": "Pokek",
+      "whatsapp": "098",
+      "address": "cainis",
+      "product_name": "NEON DRIFT TEE",
+      "product_id": "1",
+      "size": "XXL",
+      "total_price": 45,
+      "payment_method": "COD",
+      "status": "Pending",
+      "created_at": "2026-06-08T17:20:24.859Z"
+    }
+  ]
+}
