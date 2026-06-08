@@ -45,15 +45,28 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`md:hidden fixed inset-0 bg-[#050505]/98 backdrop-blur-2xl z-40 flex flex-col pt-32 px-8 transition-all duration-300 ease-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-        <div className={`flex flex-col gap-6 w-full max-w-sm mx-auto transition-transform duration-500 delay-100 ${isOpen ? 'translate-y-0' : '-translate-y-10'}`}>
-          <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white hover:text-[var(--accent-red)] font-[var(--font-orbitron)] font-black uppercase tracking-widest transition-colors text-2xl border-b border-white/10 pb-6">BELANJA SEMUA</Link>
-          <div className="flex flex-col gap-5 pl-4 border-b border-white/10 pb-6">
-            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white uppercase tracking-[0.2em] transition-colors text-sm">Pakaian</Link>
-            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white uppercase tracking-[0.2em] transition-colors text-sm">Aksesoris</Link>
+      <div className={`md:hidden fixed inset-0 bg-[#020202]/98 backdrop-blur-3xl z-40 flex flex-col justify-center items-center transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+        <div className="flex flex-col items-center gap-10 text-center w-full px-8">
+          <Link href="#shop" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-100 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            BELANJA
+            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(255,0,60,0.5)]"></span>
+          </Link>
+          
+          <Link href="#collections" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-200 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            KOLEKSI
+            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(255,0,60,0.5)]"></span>
+          </Link>
+
+          <Link href="#about" onClick={() => setIsOpen(false)} className={`group relative text-white font-[var(--font-orbitron)] font-black uppercase tracking-[0.2em] text-3xl transition-all duration-500 delay-300 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            TENTANG
+            <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-1 bg-[var(--accent-red)] transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(255,0,60,0.5)]"></span>
+          </Link>
+
+          <div className={`mt-10 flex items-center gap-6 transition-all duration-500 delay-500 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/40 hover:text-[var(--accent-red)] uppercase tracking-[0.3em] text-[10px] font-bold transition-colors">PAKAIAN</Link>
+            <span className="w-1 h-1 rounded-full bg-white/20"></span>
+            <Link href="#shop" onClick={() => setIsOpen(false)} className="text-white/40 hover:text-[var(--accent-red)] uppercase tracking-[0.3em] text-[10px] font-bold transition-colors">AKSESORIS</Link>
           </div>
-          <Link href="#collections" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[var(--accent-red)] font-[var(--font-orbitron)] font-bold uppercase tracking-widest transition-colors text-lg pt-2">KOLEKSI TERBATAS</Link>
-          <Link href="#about" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[var(--accent-red)] font-[var(--font-orbitron)] font-bold uppercase tracking-widest transition-colors text-lg">TENTANG RDLN</Link>
         </div>
       </div>
     </nav>
