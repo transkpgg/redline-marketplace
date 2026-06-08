@@ -53,7 +53,7 @@ export default function ProductGrid() {
         <input 
           type="text" 
           placeholder="Cari produk..." 
-          className="bg-transparent border border-white/20 p-3 text-white focus:border-[var(--accent-red)] outline-none flex-grow font-sans"
+          className="bg-transparent border border-black/20 p-3 text-black focus:border-[var(--accent-red)] outline-none flex-grow font-sans"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -72,11 +72,11 @@ export default function ProductGrid() {
                   BARU
                 </div>
               </div>
-              <div className="flex justify-between items-center pb-4 border-b border-white/10 mb-4">
+              <div className="flex justify-between items-center pb-4 border-b border-black/10 mb-4">
                 <h3 className="font-[var(--font-orbitron)] tracking-wider text-sm">{product.name}</h3>
                 <p className="text-[var(--text-secondary)] font-sans">${product.price.toFixed(2)}</p>
               </div>
-              <button className="w-full py-3 bg-white/5 border border-white/10 text-white font-bold font-sans text-xs tracking-[0.2em] uppercase group-hover:bg-[var(--accent-red)] group-hover:border-[var(--accent-red)] group-hover:shadow-[0_0_20px_rgba(255,0,60,0.3)] transition-all duration-300 flex items-center justify-center gap-2">
+              <button className="w-full py-3 bg-black/5 border border-black/10 text-black font-bold font-sans text-xs tracking-[0.2em] uppercase group-hover:bg-[var(--accent-red)] group-hover:text-white group-hover:border-[var(--accent-red)] group-hover:shadow-[0_0_20px_rgba(255,0,60,0.3)] transition-all duration-300 flex items-center justify-center gap-2">
                 BELI SEKARANG <span className="text-[10px] opacity-50 group-hover:opacity-100 transition-opacity">→</span>
               </button>
             </div>

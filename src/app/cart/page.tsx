@@ -7,7 +7,7 @@ export default function CartPage() {
       <p className="text-[var(--text-secondary)] text-lg mb-12 max-w-md">
         Saat ini sistem keranjang sedang dalam perbaikan. Anda bisa melakukan pemesanan (Checkout) langsung dengan mengklik produk di halaman katalog!
       </p>
-      <Link href="/#shop" className="py-4 px-8 border border-[var(--accent-red)] text-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-white transition-colors font-bold tracking-widest uppercase text-sm">
+      <Link href="/#shop" className="py-4 px-8 border border-[var(--accent-red)] text-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-black transition-colors font-bold tracking-widest uppercase text-sm">
         KEMBALI KE KATALOG
       </Link>
     </main>

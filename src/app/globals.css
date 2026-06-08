@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --bg-color: #050505;
-  --text-primary: #ffffff;
-  --text-secondary: #888888;
-  --accent-red: #ff003c;
-  --grid-color: rgba(255, 255, 255, 0.05);
+  --bg-color: #ffffff;
+  --text-primary: #0a0a0a;
+  --text-secondary: #666666;
+  --accent-red: #e60000;
+  --grid-color: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -122,7 +122,7 @@ body {
 
 .cta-button:hover {
   border-color: var(--accent-red);
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
 .cta-button:hover::before {

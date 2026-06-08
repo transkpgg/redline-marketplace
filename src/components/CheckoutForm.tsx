@@ -61,8 +61,8 @@ export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
 
     if (success) {
     return (
-      <div className="fixed inset-0 bg-black/60 z-[1000] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300">
-        <div className="border border-[var(--accent-red)] p-10 max-w-md w-full bg-[#0a0a0a]/90 shadow-[0_0_50px_rgba(255,0,60,0.2)] text-center transform scale-100 transition-transform duration-300">
+      <div className="fixed inset-0 bg-white/60 z-[1000] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300">
+        <div className="border border-[var(--accent-red)] p-10 max-w-md w-full bg-white/90 shadow-[0_0_50px_rgba(255,0,60,0.2)] text-center transform scale-100 transition-transform duration-300">
           <h2 className="font-[var(--font-orbitron)] text-2xl text-[var(--accent-red)] mb-4 tracking-widest">PESANAN BERHASIL</h2>
           <p className="text-[var(--text-secondary)] mb-8 font-sans leading-relaxed">Transaksi Anda telah diproses. Agen kami akan segera menghubungi Anda melalui WhatsApp untuk mengonfirmasi pengiriman.</p>
           <button onClick={onClose} className="cta-button py-3 px-6 w-full justify-center">
@@ -76,20 +76,20 @@ export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
   const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
   return (
-    <div className={`fixed inset-0 bg-black/60 z-[1000] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300 overflow-y-auto ${show ? 'opacity-100' : 'opacity-0'}`}>
-      <div className={`border border-white/10 p-8 max-w-lg w-full bg-[#0a0a0a]/95 shadow-2xl relative mt-20 md:mt-0 transition-transform duration-300 ${show ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'}`}>
-        <button onClick={handleClose} className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors text-2xl">&times;</button>
+    <div className={`fixed inset-0 bg-white/60 z-[1000] flex items-center justify-center p-4 backdrop-blur-md transition-opacity duration-300 overflow-y-auto ${show ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`border border-black/10 p-8 max-w-lg w-full bg-white/95 shadow-2xl relative mt-20 md:mt-0 transition-transform duration-300 ${show ? 'translate-y-0 scale-100' : 'translate-y-10 scale-95'}`}>
+        <button onClick={handleClose} className="absolute top-6 right-6 text-black/50 hover:text-black transition-colors text-2xl">&times;</button>
         
-        <h2 className="font-[var(--font-orbitron)] text-2xl tracking-widest mb-6 border-b border-white/10 pb-4">CHECKOUT <span className="text-[var(--accent-red)]">AMAN</span></h2>
+        <h2 className="font-[var(--font-orbitron)] text-2xl tracking-widest mb-6 border-b border-black/10 pb-4">CHECKOUT <span className="text-[var(--accent-red)]">AMAN</span></h2>
         
-        <div className="flex gap-6 mb-8 bg-white/5 p-4 rounded-sm border border-white/5">
+        <div className="flex gap-6 mb-8 bg-black/5 p-4 rounded-sm border border-black/5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={product.image_url} alt={product.name} className="w-24 h-28 object-cover border border-white/10" />
+          <img src={product.image_url} alt={product.name} className="w-24 h-28 object-cover border border-black/10" />
           <div className="flex flex-col justify-center">
             <h3 className="font-[var(--font-orbitron)] tracking-wide mb-1 text-lg">{product.name}</h3>
             <p className="text-[var(--text-secondary)] font-sans mb-3">${product.price.toFixed(2)}</p>
             {product.stock !== undefined && (
-              <span className={`text-xs px-2 py-1 border rounded-sm w-max ${product.stock > 0 ? 'border-green-500/50 text-green-400' : 'border-red-500/50 text-red-400'}`}>
+              <span className={`text-xs px-2 py-1 border rounded-sm w-max ${product.stock > 0 ? 'border-green-500/50 text-green-600' : 'border-red-500/50 text-red-600'}`}>
                 {product.stock > 0 ? `${product.stock} STOK` : 'HABIS'}
               </span>
             )}
@@ -107,7 +107,7 @@ export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
                   key={s} 
                   type="button"
                   onClick={() => setSize(s)}
-                  className={`w-12 h-12 flex items-center justify-center border font-bold transition-all duration-200 ${size === s ? 'border-[var(--accent-red)] bg-[rgba(255,0,60,0.1)] text-white' : 'border-white/20 text-white/50 hover:border-white/50 hover:text-white'}`}
+                  className={`w-12 h-12 flex items-center justify-center border font-bold transition-all duration-200 ${size === s ? 'border-[var(--accent-red)] bg-[rgba(255,0,60,0.1)] text-black' : 'border-black/20 text-black/50 hover:border-black/50 hover:text-black'}`}
                 >
                   {s}
                 </button>
@@ -118,28 +118,28 @@ export default function CheckoutForm({ product, onClose }: CheckoutFormProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
             <div>
               <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Nama Lengkap</label>
-              <input required name="name" type="text" className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none" />
+              <input required name="name" type="text" className="w-full bg-black/5 border border-black/10 p-3 text-black focus:border-[var(--accent-red)] focus:bg-transparent transition-colors outline-none" />
             </div>
             <div>
               <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Nomor WhatsApp</label>
-              <input required name="whatsapp" type="tel" placeholder="+62..." className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none" />
+              <input required name="whatsapp" type="tel" placeholder="+62..." className="w-full bg-black/5 border border-black/10 p-3 text-black focus:border-[var(--accent-red)] focus:bg-transparent transition-colors outline-none" />
             </div>
           </div>
 
           <div>
             <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Alamat Pengiriman</label>
-            <textarea required name="address" rows={2} className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none resize-none"></textarea>
+            <textarea required name="address" rows={2} className="w-full bg-black/5 border border-black/10 p-3 text-black focus:border-[var(--accent-red)] focus:bg-transparent transition-colors outline-none resize-none"></textarea>
           </div>
           
           <div>
             <label className="block text-xs uppercase tracking-widest text-[var(--text-secondary)] mb-2">Metode Pembayaran</label>
             <div className="relative">
-              <select name="payment" className="w-full bg-black/50 border border-white/10 p-3 text-white focus:border-[var(--accent-red)] focus:bg-black transition-colors outline-none appearance-none">
+              <select name="payment" className="w-full bg-black/5 border border-black/10 p-3 text-black focus:border-[var(--accent-red)] focus:bg-transparent transition-colors outline-none appearance-none">
                 <option value="Bank Transfer">Transfer Bank</option>
                 <option value="E-Wallet">E-Wallet (OVO/GoPay/Dana)</option>
                 <option value="COD">Bayar di Tempat (COD)</option>
               </select>
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">▼</div>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-black/50">▼</div>
             </div>
           </div>
           
